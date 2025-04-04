@@ -2,6 +2,9 @@ import { QueryClient } from "@tanstack/react-query";
 
 export const queryClient = new QueryClient();
 
+// Add API base URL constant
+const API_BASE_URL = "https://safespace-api-6wr5.onrender.com"; // Replace with your actual Render API URL
+
 export const apiRequest = async (
   method: string,
   url: string,
@@ -18,7 +21,9 @@ export const apiRequest = async (
     options.body = JSON.stringify(payload);
   }
 
-  const response = await fetch(url, options);
+  // Prepend API base URL to the request URL
+  const fullUrl = `${API_BASE_URL}${url}`;
+  const response = await fetch(fullUrl, options);
 
   if (!response.ok) {
     const errorText = await response.text();

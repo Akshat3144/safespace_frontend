@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:3001/api/:path*", // Adjust port as needed
+        destination: "https://safespace-api-6wr5.onrender.com/api/:path*", // Replace with your Render API URL
       },
     ];
   },
